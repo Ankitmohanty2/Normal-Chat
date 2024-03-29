@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wassup - Chat App</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Additional CSS for improved UI */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .chat__section {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .brand img {
+            margin-right: 10px;
+        }
+        .brand h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+        .message__area {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+        #textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        #textarea:focus {
+            outline: none;
+            border-color: #66afe9;
+        }
+    </style>
+</head>
+<body>
+    <section class="chat__section">
+        <div class="brand">
+            <img height="40" src="/wassup.png" alt="">
+            <h1>Wassup</h1>
+        </div>
+        <div class="message__area"></div>
+        <div>
+            <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
+        </div>
+    </section>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+</body>
+</html>
