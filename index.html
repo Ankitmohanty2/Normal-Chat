@@ -5,27 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wassup - Chat App</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         /* Additional CSS for improved UI */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f0f0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .chat__section {
+            width: 100%;
             max-width: 600px;
-            margin: 20px auto;
+            height: 80vh;
             background-color: #fff;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            box-sizing: border-box;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
         .brand {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #075e54;
+            color: white;
         }
         .brand img {
             margin-right: 10px;
@@ -33,37 +42,58 @@
         .brand h1 {
             font-size: 24px;
             margin: 0;
-            color: #333;
         }
         .message__area {
-            max-height: 300px;
+            flex: 1;
             overflow-y: auto;
-            padding-bottom: 10px;
+            padding: 20px;
+        }
+        .input__area {
+            display: flex;
+            padding: 20px;
+            background-color: #f0f0f0;
         }
         #textarea {
-            width: 100%;
+            flex: 1;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: none;
+            border-radius: 20px;
             resize: none;
-            box-sizing: border-box;
             font-size: 16px;
         }
         #textarea:focus {
             outline: none;
-            border-color: #66afe9;
+        }
+        .send__button {
+            background-color: #075e54;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .send__button:hover {
+            background-color: #128C7E;
         }
     </style>
 </head>
 <body>
     <section class="chat__section">
         <div class="brand">
-            <img height="40" src="/wassup.png" alt="">
+            <img height="40" src="/wassup.png" alt="Wassup logo">
             <h1>Wassup</h1>
         </div>
         <div class="message__area"></div>
-        <div>
-            <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
+        <div class="input__area">
+            <textarea id="textarea" placeholder="Write a message..."></textarea>
+            <button class="send__button" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </section>
     <script src="/socket.io/socket.io.js"></script>
